@@ -1,0 +1,14 @@
+# binaries
+aio
+layout_demo
+
+# object files
+*.o
+*.a
+
+# assembly output
+*.s
+
+# editor
+.vscode/
+*.swp
