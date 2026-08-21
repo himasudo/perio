@@ -40,3 +40,8 @@ perio/
 - Custom allocator
 - epoll-based event loop
 - io_uring backend
+
+
+## License
+ 
+MIT — see [LICENSE](LICENSE).
