@@ -1,6 +1,7 @@
 # binaries
 aio
 layout_demo
+dummy_backend
 
 # object files
 *.o
