@@ -3,6 +3,7 @@ aio
 layout_demo
 dummy_backend
 ring_demo
+cycles_demo
 
 # object files
 *.o

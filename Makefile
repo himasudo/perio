@@ -1,7 +1,7 @@
 CC     = gcc
 CFLAGS = -Wall -Wextra -g
 
-all: layout_demo dummy_backend ring_demo
+all: layout_demo dummy_backend ring_demo cycles_demo
 
 layout_demo: tools/layout_demo.c tools/layout.c tools/layout.h
 	$(CC) $(CFLAGS) tools/layout_demo.c tools/layout.c -o layout_demo
@@ -12,5 +12,8 @@ dummy_backend: examples/dummy_backend.c lib/ops.c lib/ops.h
 ring_demo: examples/ring_demo.c lib/ring.c lib/ring.h
 	$(CC) $(CFLAGS) -pthread examples/ring_demo.c lib/ring.c -o ring_demo
 
+cycles_demo: examples/cycles_demo.c lib/cycles.c lib/cycles.h
+	$(CC) $(CFLAGS) -O2 -pthread examples/cycles_demo.c lib/cycles.c -o cycles_demo
+
 clean:
-	rm -f layout_demo dummy_backend ring_demo
+	rm -f layout_demo dummy_backend ring_demo cycles_demo
