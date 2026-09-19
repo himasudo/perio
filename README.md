@@ -28,14 +28,11 @@ perio/
 ├── examples/
 │   ├── dummy_backend.c    # vtable dispatch demo
 │   └── ring_demo.c        # SPSC ring buffer end-to-end test
-│   ├── cycles_demo.c      # measurement harness demo — floor, add, divide, chain
 ├── lib/
 │   ├── ops.h              # backend vtable
 │   ├── ops.c
 │   ├── ring.h             # SPSC ring buffer
 │   └── ring.c
-│   ├── cycles.h           # TSC-based cycle/time measurement harness
-│   └── cycles.c
 └── tools/
     ├── layout.h        # struct memory layout inspector
     ├── layout.c
@@ -54,23 +51,12 @@ wrapping is a mask rather than a division. No locks, no per-item
 allocation. This is the same design io_uring uses for its submission
 and completion queues.
 
-**`lib/cycles`** — TSC-based cycle and time measurement harness.
-Reads the TSC with a serialising boundary (`rdtscp`), runs a measured
-function many times with a warm-up phase, and reports min, median, and
-mean in both raw ticks and nanoseconds. Calibrates the TSC frequency
-against `CLOCK_MONOTONIC` once at startup.
+## Roadmap
 
 ## Roadmap
 
-- [x] Struct memory layout tooling
-- [x] Backend vtable (`lib/ops`)
-- [x] SPSC ring buffer with acquire/release ordering (`lib/ring`)
-- [x] TSC-based measurement harness (`lib/cycles`)
-- [ ] Pipeline and memory-ordering microbenchmark workloads
-- [ ] Cache-aware benchmarking
-- [ ] Raw syscall wrappers
-- [ ] Intrusive linked list / red-black tree
-- [ ] Custom allocator
+- [x] Backend vtable (lib/ops)
+- [x] SPSC ring buffer with acquire/release ordering (lib/ring)
 - [ ] epoll-based event loop
 - [ ] io_uring backend
 
